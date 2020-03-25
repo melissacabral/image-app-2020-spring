@@ -1,0 +1,56 @@
+/* mobile first, no grids */
+body{
+	margin:0;
+}
+.site {
+	min-height: 100vh;
+}
+.header {
+	background: dimgray;
+	padding:1em;
+	color:white;
+}
+
+.footer {
+	background: dimgray;
+	padding:1em;
+	color:white;
+}
+/* check for non ie browsers that support grid */
+@supports (grid-area: auto) {
+	.site {
+		display: grid;
+/* 		grid-gap:1em 1em; */
+		grid-template-areas: "header" 
+							"content" 
+							"sidebar" 
+							"footer";
+	}
+	.header {
+		grid-area: header;
+	}
+	.content {
+		grid-area: content;
+	}
+	.sidebar {
+		grid-area: sidebar;
+	}
+	.footer {
+		grid-area: footer;
+	}
+	img{
+		max-width:100%;
+		height:auto;
+	}
+	@media screen and (min-width: 600px) {
+		.site {
+			grid-template-columns: 2fr  1fr;
+			grid-template-rows: 1fr 10fr 1fr;
+			grid-template-areas: "header  header"
+									"content  sidebar"
+									"content  sidebar"
+									"footer footer";
+		}
+	}
+	
+}

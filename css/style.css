@@ -1,30 +1,127 @@
-/* mobile first, no grids */
+/*
+Table of Contents:
+
+== Variables  
+== Basic layout, mobile-first
+== Header 
+== Main Content Area
+== Sidebar 
+== Footer
+== CSS Grid Layout Breakpoints
+
+*/
+
+
+/* == Variables (custom properties). these don't work in IE */
+:root{
+	--base-color: 	dimgray;
+	--light-text:	white;
+	--text-color:	#393939;
+	--accent-color: tomato;
+	--link-color:	dodgerblue;
+	--light-color: 	#eee;
+
+	--shadow:2px 3px 6px rgba(0,0,0,.2);
+}
+
+/* == Basic layout, mobile-first*/
+html{
+	font-size: 80%;
+}
 body{
 	margin:0;
+	letter-spacing: .005em;
+	color: var(--text-color);
+	
 }
 .site {
 	min-height: 100vh;
 }
-.header {
-	background: dimgray;
-	padding:1em;
-	color:white;
+img{
+	max-width:100%;
+	height:auto;
 }
 
-.footer {
-	background: dimgray;
-	padding:1em;
-	color:white;
+h2{
+	font-size:1.3em;
+	font-weight: 400;
 }
-/* check for non ie browsers that support grid */
+h3{
+	font-size:1.1em;
+}
+
+/* == Header */
+.header {
+	background: var(--base-color);
+	padding:1em;
+	color:var(--light-text);
+}
+.header h1{
+	text-align: center;
+	margin:0;
+}
+
+
+/* == Main Content Area*/
+.content{
+	padding: 1em;
+}
+.content .post{
+	max-width:400px;
+	margin:.5em auto 2em;
+}
+.post-image{
+	box-shadow: var(--shadow);
+}
+
+ .author,  .user{
+	display: block;
+	margin: .75em 0;
+}
+/*profile pics*/
+.author img, .user img{
+	vertical-align: middle;
+	box-shadow: var(--shadow);
+	border-radius: 999em;
+}
+.content .category, .content .date{
+	display: block;
+	font-size:.8em;
+	color:var(--base-color);
+}
+
+
+
+/* == Sidebar */
+.sidebar{
+	padding:1em;
+	font-size:90%;
+	background-color: var(--light-color);
+}
+.sidebar ul{
+	list-style-type: none;
+	padding:0;
+}
+.sidebar section{
+	max-width:20em;
+	margin: 1em 0 3em;
+}
+
+/* == Footer*/
+.footer {
+	background: var(--base-color);
+	padding:1em;
+	color:var(--light-text);
+}
+/* == CSS Grid Layout Breakpoints: check for browsers that support grid */
 @supports (grid-area: auto) {
 	.site {
 		display: grid;
-/* 		grid-gap:1em 1em; */
-		grid-template-areas: "header" 
-							"content" 
-							"sidebar" 
-							"footer";
+
+		grid-template-areas: 	"header" 
+								"content" 
+								"sidebar" 
+								"footer";
 	}
 	.header {
 		grid-area: header;
@@ -38,18 +135,15 @@ body{
 	.footer {
 		grid-area: footer;
 	}
-	img{
-		max-width:100%;
-		height:auto;
-	}
-	@media screen and (min-width: 600px) {
+	
+	@media screen and (min-width: 700px) {
 		.site {
 			grid-template-columns: 2fr  1fr;
-			grid-template-rows: 1fr 10fr 1fr;
-			grid-template-areas: "header  header"
-									"content  sidebar"
-									"content  sidebar"
-									"footer footer";
+			
+			grid-template-areas: 	"header  	header"
+									"content  	sidebar"
+									"content  	sidebar"
+									"footer 	footer";
 		}
 	}
 	

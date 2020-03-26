@@ -1,4 +1,7 @@
-<?php require( 'config.php' ); ?>
+<?php 
+require( 'config.php' ); 
+require( 'includes/functions.php' );
+?>
 <!DOCTYPE html>
 <html>
 <head>
@@ -11,5 +14,5 @@
 <body>
 	<div class="site">
 	<header class="header">
-		<h1>Image App</h1>
+		<h1><a href="index.php">Image App</a></h1>
 	</header>

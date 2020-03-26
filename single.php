@@ -1,21 +1,21 @@
 <?php 
 require( 'includes/header.php'); 
+
+//write the query: get the post that was clicked on
+//URL will look like single.php?post_id=5
+$post_id = filter_var( $_GET['post_id'], FILTER_SANITIZE_NUMBER_INT );
+
+//in case post_id is missing, set it to 0 so the sql doesn't break
+if( ! $post_id ){
+	$post_id = 0;
+}
+
 include( 'includes/parse-comment.php' );  
 ?>
-
-
-
 	<main class="content">
 		
 		<?php 
-		//write the query: get the post that was clicked on
-		//URL will look like single.php?post_id=5
-		$post_id = filter_var( $_GET['post_id'], FILTER_SANITIZE_NUMBER_INT );
-
-		//in case post_id is missing, set it to 0 so the sql doesn't break
-		if( ! $post_id ){
-			$post_id = 0;
-		}
+		
 
 		$sql = "SELECT posts.*, users.username, users.profile_pic, categories.name
 					FROM posts, users, categories
@@ -54,7 +54,7 @@ include( 'includes/parse-comment.php' );
 
 			<span class="category"><?php echo $post['name']; ?></span>
 
-			<span class="date"><?php echo $post['date']; ?></span>
+			<span class="date"><?php nice_date( $post['date'] ); ?></span>
 		</div>
 
 		<?php 
@@ -94,7 +94,7 @@ include( 'includes/parse-comment.php' );
 
 				<p><?php echo $comment['body']; ?></p>
 
-				<span class="date"><?php echo $comment['date']; ?></span>
+				<span class="date"><?php echo timeago( $comment['date'] ); ?></span>
 
 			</div><!-- end .one-comment -->	
 			<?php } //end while there are comments ?>

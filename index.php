@@ -38,7 +38,7 @@
 
 			<span class="category"><?php echo $post['name']; ?></span>
 
-			<span class="date"><?php echo $post['date']; ?></span>
+			<span class="date"><?php nice_date( $post['date'] ); ?></span>
 		</div>
 
 		<?php 

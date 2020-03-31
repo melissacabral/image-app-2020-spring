@@ -7,6 +7,7 @@ TODO
 
 
 
+
 DONE
 ====
 
@@ -17,3 +18,7 @@ DONE
 * make the comment form
 * parse the form
 * make the dates look better
+* set up the code debugger
+* Add search form
+* build search template
+* add pagination to the results

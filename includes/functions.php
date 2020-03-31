@@ -10,7 +10,7 @@ function clean_string( $input ){
 	return $output;
 }
 
-//change the DATETIME format to a human-friendly format
+//change the DATETIME format to a human-friendly format, like Monday, January 1
 function nice_date( $timestamp ){
 	$output = new DateTime( $timestamp );
 	echo $output->format( 'l, F j' );

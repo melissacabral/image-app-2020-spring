@@ -60,6 +60,9 @@ h3{
 	text-align: center;
 	margin:0;
 }
+.header h1 a{
+	color:inherit;
+}
 
 
 /* == Main Content Area*/

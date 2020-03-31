@@ -15,4 +15,12 @@ require( 'includes/functions.php' );
 	<div class="site">
 	<header class="header">
 		<h1><a href="index.php">Image App</a></h1>
+
+		<form class="searchform" method="get" action="search.php">
+			<label class="screen-reader-text">Search:</label>
+			<input type="search" name="phrase">
+
+			<input type="submit" value="Search">
+			
+		</form>
 	</header>

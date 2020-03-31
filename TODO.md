@@ -2,9 +2,9 @@ TODO
 ====
 
 
-
-
-
+* add a function to count the number of approved comments on any post
+* make user profile page
+* Make the category template
 
 
 

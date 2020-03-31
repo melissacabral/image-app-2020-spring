@@ -16,11 +16,21 @@ require( 'includes/functions.php' );
 	<header class="header">
 		<h1><a href="index.php">Image App</a></h1>
 
-		<form class="searchform" method="get" action="search.php">
-			<label class="screen-reader-text">Search:</label>
-			<input type="search" name="phrase">
+		<nav class="main-navigation">
 
-			<input type="submit" value="Search">
+			<form class="searchform" method="get" action="search.php">
+				<label class="screen-reader-text">Search:</label>
+				<input type="search" name="phrase">
+
+				<input type="submit" value="Search">
 			
-		</form>
+			</form>
+
+			<ul class="menu">
+				<li><a href="#">Explore</a></li>
+				<li><a href="#">Log In</a></li>
+				<li><a href="#">Register</a></li>
+			</ul>
+			
+		</nav>
 	</header>

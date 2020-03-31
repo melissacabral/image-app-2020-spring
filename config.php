@@ -5,6 +5,26 @@ $db_name = 'phpclassimageapp';
 $db_user = 'phpimageapp';
 $db_password = 'Pz4FUqHNp0bVLWA7';
 
+
+//Debug mode on or off
+//true: show all errors and superglobal arrays 
+//false: live site mode
+define( 'DEBUG_MODE', true );
+
+
+//==============STOP EDITING===========
+
+//error reporting
+if( DEBUG_MODE ){
+	// error_reporting( E_ALL );
+	error_reporting( E_ALL & ~E_NOTICE );
+}else{
+	//hide all errors
+	error_reporting(0);
+	ini_set('display_errors', 0);
+}
+
+
 //connect to the DB
 $db = new mysqli( $host, $db_user, $db_password, $db_name );
 
@@ -12,5 +32,6 @@ $db = new mysqli( $host, $db_user, $db_password, $db_name );
 if($db->connect_errno > 0){
 	die( 'Could not connect to the Database' );
 }
+
 
 //no close php

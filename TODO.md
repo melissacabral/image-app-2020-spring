@@ -2,8 +2,12 @@ TODO
 ====
 
 
-* add a function to count the number of approved comments on any post
+* make the login form
 * make user profile page
+
+
+
+* add a function to count the number of approved comments on any post
 * Make the category template
 
 
@@ -22,3 +26,5 @@ DONE
 * Add search form
 * build search template
 * add pagination to the results
+* add the register form
+* make sure all passwords are salted and hashed 

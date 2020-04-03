@@ -11,6 +11,9 @@ $db_password = 'Pz4FUqHNp0bVLWA7';
 //false: live site mode
 define( 'DEBUG_MODE', true );
 
+//SALT for securing passwords 
+define( 'SALT', '054635487&^*%bg8542.0^#%&,mag rkj52840gnvu7t^%$jvhgvgy5' );
+
 
 //==============STOP EDITING===========
 

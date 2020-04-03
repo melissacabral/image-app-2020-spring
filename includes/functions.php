@@ -10,6 +10,14 @@ function clean_string( $input ){
 	return $output;
 }
 
+//sanitize a boolean value
+function clean_boolean( $input ){
+    if(  $input != 1 ){
+        $input = 0;
+    }
+    return $input;
+}
+
 //change the DATETIME format to a human-friendly format, like Monday, January 1
 function nice_date( $timestamp ){
 	$output = new DateTime( $timestamp );
@@ -46,4 +54,28 @@ function timeago($datetime, $full = false) {
     if (!$full) $string = array_slice($string, 0, 1);
     return $string ? implode(', ', $string) . ' ago' : 'just now';
 }
+
+//display a nice looking feedback message with possible error list. use with any form
+function display_feedback( $heading, $class = '', $list = array() ){
+    if( isset($heading) ){
+        echo "<div class='feedback $class'>";
+        echo "<h2>$heading</h2>";
+
+        //if the list is not empty, show it
+        if( ! empty($list) ){
+            echo '<ul>';
+
+            foreach( $list as $item ){
+                echo "<li>$item</li>";
+            }
+
+            echo '</ul>';
+        }
+
+        echo '</div>';
+
+    }
+}
+
+
 //no close php

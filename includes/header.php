@@ -1,6 +1,9 @@
 <?php 
 require( 'config.php' ); 
 require( 'includes/functions.php' );
+
+//login security check
+$logged_in_user = check_login();
 ?>
 <!DOCTYPE html>
 <html>
@@ -30,11 +33,21 @@ require( 'includes/functions.php' );
 				<li><a href="index.php">Explore</a></li>
 
 
+				<?php if( ! $logged_in_user ){ 
+					//Menu for NOT logged in users
+				?>
+
 				<li><a href="login.php">Log In</a></li>
 				<li><a href="register.php">Register</a></li>
 
+				<?php }else{ 
+					//Menu for logged in users
+				?>
 
+				<li><a href="#"><?php echo $logged_in_user['username']; ?>'s Account</a></li>
 				<li><a href="login.php?action=logout">Log Out</a></li>
+
+				<?php } ?>
 			</ul>
 			
 		</nav>

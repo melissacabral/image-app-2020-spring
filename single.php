@@ -108,7 +108,11 @@ include( 'includes/parse-comment.php' );
 			}
 
 			if( $allow_comments ){
-				include('includes/comment-form.php');
+				if( $logged_in_user ){
+					include('includes/comment-form.php');
+				}else{
+					echo '<div class="feedback">You must be logged in to comment on this.</div>';
+				}
 			}
 
 		} //end if posts found

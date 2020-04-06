@@ -77,5 +77,41 @@ function display_feedback( $heading, $class = '', $list = array() ){
     }
 }
 
+//check to see if the viewer is logged in
+//returns false if not logged in
+//return an array of all user info if they are logged in
+function check_login(){
+    global $db;
+    
+    $_SESSION['secret_key'] = $_COOKIE['secret_key'];
+    $_SESSION['user_id'] = $_COOKIE['user_id'];
+    
+    if( isset($_SESSION['secret_key']) AND isset($_SESSION['user_id']) ){
+        //check to see if these keys match the DB
+        $secret_key = $_SESSION['secret_key'];
+        $user_id = $_SESSION['user_id'];
+
+        $sql = "SELECT * FROM users
+                WHERE user_id = $user_id
+                AND secret_key = '$secret_key'
+                LIMIT 1";
+
+        $result = $db->query($sql);
+        if(! $result){
+            return false;
+        }
+        if($result->num_rows == 1){
+            //success! return all the info about the logged in user
+            return $result->fetch_assoc();
+        }else{
+            return false;
+        }
+    }else{
+        //not logged in
+        return false;
+    }
+}
+
+
 
 //no close php

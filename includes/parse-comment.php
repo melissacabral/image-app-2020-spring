@@ -4,7 +4,7 @@ if( $_POST['did_comment'] ){
 	//sanitize all fields
 	$body = clean_string( $_POST['body'] );
 	//TODO: remove this when we have a real log in system
-	$user_id = 1;
+	$user_id = $logged_in_user['user_id'];
 
 	//validate all fields
 	$valid = true;

@@ -17,6 +17,8 @@ define( 'SALT', '054635487&^*%bg8542.0^#%&,mag rkj52840gnvu7t^%$jvhgvgy5' );
 
 //==============STOP EDITING===========
 
+session_start();
+
 //error reporting
 if( DEBUG_MODE ){
 	// error_reporting( E_ALL );

@@ -27,9 +27,14 @@ require( 'includes/functions.php' );
 			</form>
 
 			<ul class="menu">
-				<li><a href="#">Explore</a></li>
-				<li><a href="#">Log In</a></li>
-				<li><a href="#">Register</a></li>
+				<li><a href="index.php">Explore</a></li>
+
+
+				<li><a href="login.php">Log In</a></li>
+				<li><a href="register.php">Register</a></li>
+
+
+				<li><a href="login.php?action=logout">Log Out</a></li>
 			</ul>
 			
 		</nav>

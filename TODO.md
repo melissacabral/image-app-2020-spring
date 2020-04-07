@@ -1,12 +1,13 @@
 TODO
 ====
 
+* make the "new post" uploader form
 
-* make the login form
+* make the "edit post" (step 2 of new post)
+
+
+
 * make user profile page
-
-
-
 * add a function to count the number of approved comments on any post
 * Make the category template
 
@@ -28,3 +29,4 @@ DONE
 * add pagination to the results
 * add the register form
 * make sure all passwords are salted and hashed 
+* make the login form

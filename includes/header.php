@@ -44,6 +44,7 @@ $logged_in_user = check_login();
 					//Menu for logged in users
 				?>
 
+				<li><a href="upload.php">New Post</a></li>
 				<li><a href="#"><?php echo $logged_in_user['username']; ?>'s Account</a></li>
 				<li><a href="login.php?action=logout">Log Out</a></li>
 

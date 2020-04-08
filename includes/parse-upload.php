@@ -103,8 +103,11 @@ if( $_POST['did_upload'] ){
 			}
 
 			if($db->affected_rows >= 1){
-				//success - redirect to step 2
+				//success - TODO redirect to step 2
 				$feedback = 'Successfully created your post.';
+				//get the auto-incremented ID from the last inserted row 
+				$post_id = $db->insert_id;
+				header("Location:edit-post.php?post_id=$post_id");
 			}else{
 				$feedback = 'Your post could not be added to the database. Try again.';
 			}

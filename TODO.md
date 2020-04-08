@@ -1,11 +1,6 @@
 TODO
 ====
 
-* make the "new post" uploader form
-
-* make the "edit post" (step 2 of new post)
-
-
 
 * make user profile page
 * add a function to count the number of approved comments on any post
@@ -30,3 +25,9 @@ DONE
 * add the register form
 * make sure all passwords are salted and hashed 
 * make the login form
+* make the "new post" uploader form
+* link to "new post" only if logged in
+* make the "edit post" (step 2 of new post)
+	* pre-fill the edit form with existing values
+
+* make a function to display uploaded images at any size (small, medium, large)

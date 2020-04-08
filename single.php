@@ -42,7 +42,17 @@ include( 'includes/parse-comment.php' );
 				$allow_comments = $post['allow_comments'];
 		?>
 		<div class="post">
-			<img class="post-image" src="<?php echo $post['image']; ?>" alt="<?php echo $post['title']; ?>">
+			<?php display_post_image( $post['post_id'], 'large' ); ?>
+
+			<?php 
+			//if the author is viewing this page, show the edit button
+			if( $logged_in_user['user_id'] == $post['user_id'] ){
+			?>
+
+			<a class="button" href="edit-post.php?post_id=<?php echo $post['post_id']; ?>">Edit</a>
+
+			<?php }	//end if author logged in ?>
+			
 
 			<span class="author">
 				<img src="<?php echo $post['profile_pic']; ?>" width="50" height="50">

@@ -10,6 +10,20 @@ function clean_string( $input ){
 	return $output;
 }
 
+
+//clean an integer for the database
+function clean_int( $input ){
+    //get the DB connection from outside this function
+    global $db;
+
+    $output = filter_var( $input, FILTER_SANITIZE_NUMBER_INT );
+    $output = mysqli_real_escape_string( $db, $output );
+
+    return $output;
+}
+
+
+
 //sanitize a boolean value
 function clean_boolean( $input ){
     if(  $input != 1 ){
@@ -109,6 +123,46 @@ function check_login(){
     }else{
         //not logged in
         return false;
+    }
+}
+
+
+//helpers for select dropdowns, checkboxes and radio buttons
+
+//use in <option> tags
+function selected( $thing1, $thing2 ){
+    if( $thing1 == $thing2 ){
+        echo 'selected';
+    }
+}
+
+//use in checkboxes and radio buttons
+function checked( $thing1, $thing2 ){
+    if( $thing1 == $thing2 ){
+        echo 'checked';
+    }
+}
+
+//display any post image at any known size
+function display_post_image( $post_id, $size = 'medium' ){
+    global $db;
+
+    //get the image of this post
+    $sql = "SELECT image, title
+            FROM posts 
+            WHERE post_id = $post_id
+            LIMIT 1";
+    $result = $db->query($sql);
+    if(! $result){
+        echo $db->error;
+    }
+    if( $result->num_rows >= 1 ){
+        $post = $result->fetch_assoc();
+
+        $image = 'uploads/' . $post['image'] . '_' . $size . '.jpg';
+        $title = $post['title'];
+
+        echo "<img src='$image' class='post-image' alt='$title'>";
     }
 }
 

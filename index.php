@@ -26,7 +26,9 @@
 			while( $post = $result->fetch_assoc() ){ ?>
 		<div class="post">
 			<a href="single.php?post_id=<?php echo $post['post_id']; ?>">
-				<img class="post-image" src="<?php echo $post['image']; ?>" alt="<?php echo $post['title']; ?>">
+
+				<?php display_post_image( $post['post_id'], 'large' ); ?>
+				
 			</a>
 			<span class="author">
 				<img src="<?php echo $post['profile_pic']; ?>" width="50" height="50">

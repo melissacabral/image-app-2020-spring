@@ -63,8 +63,9 @@ if( $phrase != '' ){
 			
 			<?php while( $post = $result->fetch_assoc() ){ ?>
 			<div class="item">
-				<a href="single.php?post_id=POSTID">
-					<img src="<?php echo $post['image']; ?>">
+				<a href="single.php?post_id=<?php echo $post['post_id']; ?>">
+
+					<?php display_post_image( $post['post_id'], 'small' ); ?>
 				</a>
 
 				<h3><?php echo $post['title']; ?></h3>

@@ -1,6 +1,12 @@
 TODO
 ====
 
+* Like button interface
+	* CSS for heart button
+	* function to count the likes on any post
+	* ajax stuff
+	* php file behind the scenes to update the likes table 
+
 
 * make user profile page
 * add a function to count the number of approved comments on any post

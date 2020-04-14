@@ -167,5 +167,62 @@ function display_post_image( $post_id, $size = 'medium' ){
 }
 
 
+//count the likes on any post
+function count_likes( $post_id ){
+    global $db;
+    $sql = "SELECT COUNT(*) AS total_likes
+            FROM likes
+            WHERE post_id = $post_id";
+    $result = $db->query($sql);
+    if( !$result ){
+        echo $db->error;
+    }
+    if( $result->num_rows >= 1 ){
+       while( $likes = $result->fetch_assoc() ){
+            $likes =  $likes['total_likes'];
+
+            //show the number with good grammar (ternary operator example)
+            echo $likes == 1 ? '1 person likes this' : "$likes people like this";
+       }
+    }
+}
+
+
+//Like button (heart) interface
+function like_interface( $post_id, $user_id = 0 ){
+    global $db;
+    //if there is a logged in user, check if this user likes this post
+    if( $user_id ){
+        $sql = "SELECT * FROM likes
+                WHERE user_id = $user_id
+                AND post_id = $post_id
+                LIMIT 1";
+        $result = $db->query($sql);
+        if( ! $result ){
+            echo $db->error;
+        }
+        if( $result->num_rows >= 1 ){
+            //you like this
+            $class = 'you-like';
+        }else{
+            $class = '';
+        }
+
+    }//end if logged in
+
+    ?>
+    <span class="like-interface">
+        <span class="<?php echo $class; ?>">
+            <span class="heart-button" data-postid="<?php echo $post_id; ?>">❤</span>   
+
+            <?php count_likes( $post_id ); ?>         
+        </span>
+    </span>
+
+    <?php
+
+}
+
+
 
 //no close php

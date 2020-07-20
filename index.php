@@ -30,14 +30,6 @@
 				<?php display_post_image( $post['post_id'], 'large' ); ?>
 				
 			</a>
-
-			<div class="likes">
-			<?php 
-			like_interface( $post['post_id'], $logged_in_user['user_id'] ); 
-			?>				
-			</div>
-
-
 			<span class="author">
 				<img src="<?php echo $post['profile_pic']; ?>" width="50" height="50">
 				<?php echo $post['username']; ?>

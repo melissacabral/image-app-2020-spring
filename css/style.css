@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 /*
 Table of Contents:
 
@@ -29,15 +30,16 @@ Table of Contents:
 html{
 	font-size: 80%;
 }
+=======
+/* mobile first, no grids */
+>>>>>>> parent of a37fad8... CSS update
 body{
 	margin:0;
-	letter-spacing: .005em;
-	color: var(--text-color);
-	
 }
 .site {
 	min-height: 100vh;
 }
+<<<<<<< HEAD
 img{
 	max-width:100%;
 	height:auto;
@@ -187,11 +189,20 @@ h3{
 }
 
 /* == Footer*/
-.footer {
-	background: var(--base-color);
+=======
+.header {
+	background: dimgray;
 	padding:1em;
-	color:var(--light-text);
+	color:white;
 }
+
+>>>>>>> parent of a37fad8... CSS update
+.footer {
+	background: dimgray;
+	padding:1em;
+	color:white;
+}
+<<<<<<< HEAD
 
 
 /* ==Milligram recolor */
@@ -206,14 +217,17 @@ input[type='email']:focus, input[type='number']:focus, input[type='password']:fo
 	border-color:var(--accent-color);
 }
 /* == CSS Grid Layout Breakpoints: check for browsers that support grid */
+=======
+/* check for non ie browsers that support grid */
+>>>>>>> parent of a37fad8... CSS update
 @supports (grid-area: auto) {
 	.site {
 		display: grid;
-
-		grid-template-areas: 	"header" 
-								"content" 
-								"sidebar" 
-								"footer";
+/* 		grid-gap:1em 1em; */
+		grid-template-areas: "header" 
+							"content" 
+							"sidebar" 
+							"footer";
 	}
 	.header {
 		grid-area: header;
@@ -227,6 +241,7 @@ input[type='email']:focus, input[type='number']:focus, input[type='password']:fo
 	.footer {
 		grid-area: footer;
 	}
+<<<<<<< HEAD
 	/* == responsive nav bar */
 	.main-navigation{
 		display: grid;
@@ -249,6 +264,20 @@ input[type='email']:focus, input[type='number']:focus, input[type='password']:fo
 									"content  	sidebar"
 									"content  	sidebar"
 									"footer 	footer";
+=======
+	img{
+		max-width:100%;
+		height:auto;
+	}
+	@media screen and (min-width: 600px) {
+		.site {
+			grid-template-columns: 2fr  1fr;
+			grid-template-rows: 1fr 10fr 1fr;
+			grid-template-areas: "header  header"
+									"content  sidebar"
+									"content  sidebar"
+									"footer footer";
+>>>>>>> parent of a37fad8... CSS update
 		}
 		.main-navigation{
 			grid-template-columns: 1.5fr 1fr;
